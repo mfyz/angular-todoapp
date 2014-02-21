@@ -1,0 +1,15 @@
+CACHE MANIFEST
+# rev 27
+angular.1.2.13.min.js
+angular-local-storage.js
+angular-debounce.js
+bootstrap.3.1.1.min.css
+index.html
+style.css
+todo.js
+
+NETWORK:
+ping.js
+
+FALLBACK:
+*   offline.html

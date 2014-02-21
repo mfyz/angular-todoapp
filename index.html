@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="TodoApp" manifest="cache.manifest">
+<head>
+    <title>Todo</title>
+    <script src="angular.1.2.13.min.js"></script>
+    <script src="angular-local-storage.js"></script>
+    <script src="angular-debounce.js"></script>
+    <script src="todo.js"></script>
+    <link rel="stylesheet" href="bootstrap.3.1.1.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div ng-controller="TodoController">
+	                <span class="badge app_status {{online_status_string}}">App is {{online_status_string}}</span>
+                    <h2>
+	                    Total {{todos.length}} Todos.
+                    </h2>
+                    <ul>
+                        <li ng-repeat="todo in todos">
+                            <input type="checkbox" ng-model="todo.done"/>
+                            <span class="done-{{todo.done}}">{{todo.text}}</span>
+                        </li>
+                    </ul>
+                    <form class="form-inline">
+                        <input type="text" class="form-control" ng-model="formTodoText" ng-model-instant/>
+                        <button ng-click="addTodo()" class="btn btn-primary">Add</button>
+	                    <span class="btn-group">
+		                    <span class="btn btn-default">Clear</span>
+		                    <button ng-click="clearCompleted()" class="btn btn-danger">Completed</button>
+                            <button ng-click="clearAll()" class="btn btn-danger">All</button>
+	                    </span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
